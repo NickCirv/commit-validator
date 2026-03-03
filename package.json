@@ -1,0 +1,37 @@
+{
+  "name": "commit-validator",
+  "version": "1.0.0",
+  "description": "Validate Conventional Commits. Git hook or CI. Configurable. Zero dependencies.",
+  "type": "module",
+  "bin": {
+    "commit-validator": "./index.js",
+    "cv": "./index.js"
+  },
+  "engines": {
+    "node": ">=18"
+  },
+  "keywords": [
+    "developer-tools",
+    "cli",
+    "nodejs",
+    "zero-dependencies",
+    "git",
+    "conventional-commits",
+    "commitlint",
+    "hooks"
+  ],
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/NickCirv/commit-validator.git"
+  },
+  "bugs": {
+    "url": "https://github.com/NickCirv/commit-validator/issues"
+  },
+  "homepage": "https://github.com/NickCirv/commit-validator#readme",
+  "files": [
+    "index.js",
+    "README.md",
+    "LICENSE"
+  ]
+}
