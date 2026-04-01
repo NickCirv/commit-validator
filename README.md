@@ -1,3 +1,5 @@
+![Banner](banner.svg)
+
 # commit-validator
 
 > Validate Conventional Commits. Use as a git hook or in CI. Configurable. Zero dependencies.
