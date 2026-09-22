@@ -1,49 +1,64 @@
-<div align="center">
+![Nicholas Ashkar — commit-validator](assets/nicholas-ashkar/banner.png)
 
 # commit-validator
 
-**Enforce Conventional Commits in git hooks or CI — zero dependencies**
+Validates commit-message structure against configurable Conventional Commit rules.
 
-[![License: MIT](https://img.shields.io/badge/License-MIT-0B0A09?labelColor=0B0A09&color=555)](LICENSE)
-[![Zero dependencies](https://img.shields.io/badge/dependencies-0-0B0A09?labelColor=0B0A09&color=555)](package.json)
-[![Node >=18](https://img.shields.io/badge/node-%3E%3D18-0B0A09?labelColor=0B0A09&color=555)](package.json)
 
-</div>
 
-## Install
 
-```bash
-npx github:NickCirv/commit-validator --install
-```
 
-Writes a `commit-msg` hook to `.git/hooks/commit-msg`. Every commit is validated from that point on.
+<a id="usage"></a>
 
-## Usage
+<a id="validate-a-message-string"></a>
 
-```bash
-# Validate a message string
-npx github:NickCirv/commit-validator "feat(auth): add JWT refresh token support"
+<a id="validate-the-last-5-commits"></a>
 
-# Validate the last 5 commits
-npx github:NickCirv/commit-validator --range HEAD~5..HEAD
-
-# Validate commits on current branch vs main (GitHub Actions)
-npx github:NickCirv/commit-validator --range main..HEAD --format github
-```
-
-| Flag | Description |
-|------|-------------|
-| `--file <path>` | Validate a message from file (commit-msg hook target) |
-| `--range <range>` | Validate a git commit range |
-| `--config <path>` | Path to `.commitlintrc.json` config |
-| `--format <fmt>` | Output format: `text` (default), `json`, `github` |
-| `--install` | Install `commit-msg` hook in current repo |
-| `--uninstall` | Remove the hook |
+<a id="validate-commits-on-current-branch-vs-main-github-actions"></a>
 
 ## What it does
 
-Parses and validates commit messages against the [Conventional Commits](https://www.conventionalcommits.org/) spec — type, scope, description casing, header length, breaking-change footers, and more (12 rules total). Outputs plain text, JSON, or GitHub Actions annotations. Supports a per-project `.commitlintrc.json` to override allowed types and length limits. Exit codes are CI-friendly: `0` valid, `1` invalid, `2` error.
+- Message parsing.
+- Configurable types/scopes.
+- Git-range checks.
+- Commit-msg hook support.
 
----
 
-<sub>Zero dependencies · Node >=18 · MIT · by <a href="https://github.com/NickCirv">NickCirv</a></sub>
+<a id="install"></a>
+
+## Quickstart
+
+Prerequisites: Node.js `>=20` and npm; Git is also used by the implementation. The checkout below pins the source used for this documentation.
+
+```sh
+git clone https://github.com/NickCirv/commit-validator.git
+cd commit-validator
+git checkout b768765794d86a72584f1f619b8ca8a6366cf068
+node index.js --help
+```
+
+**Expected behavior (illustrative, not captured):** Displays message-input, history and hook options.
+
+Examples are source-inspected, **not runtime-tested**. See the research record for verification gaps.
+
+## Boundaries and data
+
+A valid message does not verify the implementation or release classification. Installing/uninstalling a commit-msg hook changes repository behavior; inspect existing hooks first.
+
+## Development
+
+The manifest defines `npm test` as:
+
+```sh
+node --test
+```
+
+The captured suite is a smoke check, not end-to-end behavior coverage. Examples include “entry is valid JavaScript”. Tests were not run for this documentation revision.
+
+See [implementation and command reference](docs/REFERENCE.md) for the package scripts and inspected interfaces, and [research record](docs/RESEARCH.md) for the pinned source, document decisions and unresolved checks.
+
+## License and contact
+
+See [LICENSE](LICENSE) for the original terms and attribution. Legal text is unchanged.
+
+[Nicholas Ashkar](https://nicholashkar.com/) · [Discuss a project](https://nicholashkar.com/#oxblood-contact)
